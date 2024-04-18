@@ -6,8 +6,11 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 ### [B Fundamentals of Web Apps](https://fullstackopen.com/en/part0/fundamentals_of_web_apps#single-page-app)
 
-
-### [To Assignments](/part0/README.md)
+#### [To Assignments 0.1 - 0.6](/part0/README.md)
 
 ## Part 1
-### [Introduction to React](https://fullstackopen.com/en/part1/introduction_to_react)
+### [A Introduction to React](https://fullstackopen.com/en/part1/introduction_to_react)
+#### [To Assignments 1.1 - 1.2](/part1/courseinfo/)
+
+### [B JavaScript]()
+#### [To Assignments]()
