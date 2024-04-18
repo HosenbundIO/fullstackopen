@@ -13,4 +13,4 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 #### [To Assignments 1.1 - 1.2](/part1/courseinfo/)
 
 ### [B JavaScript]()
-#### [To Assignments]()
+#### [To Assignments 1.3 - 1.5]()

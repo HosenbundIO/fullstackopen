@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.cjs
+vite.config.js
+package.json
+package.lock.json
+
