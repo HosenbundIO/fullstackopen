@@ -1,5 +1,6 @@
 # Part 1
 [Exercises 1.1 - 1.2](https://fullstackopen.com/en/part1/introduction_to_react#exercises-1-1-1-2)
+[Exercises 1.3 - 1.5](https://fullstackopen.com/en/part1/java_script#exercises-1-3-1-5)
 
 
 ## 1.1: Course Information, step 1
@@ -9,3 +10,6 @@ Define the new components in the file App.jsx.
 
 ## 1.2: Course Information, step 2
 Refactor the Content component so that it does not render any names of parts or their number of exercises by itself. Instead, it only renders three Part components of which each renders the name and number of exercises of one part.
+
+## 1.3: Course Information, step 3
+Let's move forward to using objects in our application. Modify the variable definitions of the App component as follows and also refactor the application so that it still works
