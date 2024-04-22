@@ -2,6 +2,14 @@ import { useState } from "react";
 
 const Statistics = (props) => {
   const total = props.buttonStat[0] + props.buttonStat[1] + props.buttonStat[2];
+  if (total === 0) {
+    return (
+      <div>
+        <h2>statistics</h2>
+        <p>No feedback given</p>
+      </div>
+    );
+  }
   const average = (props.buttonStat[0] * 1 + props.buttonStat[2] * -1) / total;
   const percentage = (props.buttonStat[0] / total) * 100;
   return (
