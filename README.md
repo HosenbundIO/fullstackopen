@@ -24,4 +24,6 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 ### [D: A More Complex State, Debugging React Apps](https://fullstackopen.com/en/part1/a_more_complex_state_debugging_react_apps)
 
-#### [-To Assignments 1.6-1.14]()
+#### [-To Assignments 1.6 - 1.11](/part1/unicafe/)
+
+#### [-To Assignments 1.12 - 1.14](/part1/anecdotes)
