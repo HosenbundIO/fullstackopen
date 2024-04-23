@@ -47,7 +47,11 @@ It's also important to put what we learned in the debugging React applications c
 
 ## 2.7: The Phonebook, step 2
 
+Prevent the user from being able to add names that already exist in the phonebook. JavaScript arrays have numerous suitable methods for accomplishing this task. Keep in mind how object equality works in Javascript.
+
 ## 2.8: The Phonebook, step 3
+
+Expand your application by allowing users to add phone numbers to the phone book. You will need to add a second input element to the form (along with its own event handler).
 
 ## 2.9*: The Phonebook, step 4
 
