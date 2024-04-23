@@ -34,4 +34,6 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 #### [-To Assignments 2.1 - 2.5](/part2/courseinfo/)
 
-### [B: Forms]()
+### [B: Forms](https://fullstackopen.com/en/part2/forms)
+
+#### [-To Assignments 2.6 - 2.10](/part2/phonebook)

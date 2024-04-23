@@ -1,0 +1,54 @@
+# Part 2
+
+[Exercises 2.6.- 2.10](https://fullstackopen.com/en/part2/forms#exercises-2-6-2-10)
+
+## 2.6: The Phonebook, step 1
+
+Let's create a simple phonebook. In this part, we will only be adding names to the phonebook.
+
+Let us start by implementing the addition of a person to the phonebook.
+
+You can use the code below as a starting point for the App component of your application:
+
+```javascript
+import { useState } from 'react'
+
+const App = () => {
+  const [persons, setPersons] = useState([
+    { name: 'Arto Hellas' }
+  ]) 
+  const [newName, setNewName] = useState('')
+
+  return (
+    <div>
+      <h2>Phonebook</h2>
+      <form>
+        <div>
+          name: <input />
+        </div>
+        <div>
+          <button type="submit">add</button>
+        </div>
+      </form>
+      <h2>Numbers</h2>
+      ...
+    </div>
+  )
+}
+
+export default App
+```
+
+The newName state is meant for controlling the form input element.
+
+Sometimes it can be useful to render state and other variables as text for debugging purposes. You can temporarily add the following element to the rendered component:
+
+It's also important to put what we learned in the debugging React applications chapter of part one into good use. The React developer tools extension is incredibly useful for tracking changes that occur in the application's state.
+
+## 2.7: The Phonebook, step 2
+
+## 2.8: The Phonebook, step 3
+
+## 2.9*: The Phonebook, step 4
+
+## 2.10: The Phonebook, step 5
