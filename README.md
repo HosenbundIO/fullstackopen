@@ -27,3 +27,8 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 #### [-To Assignments 1.6 - 1.11](/part1/unicafe/)
 
 #### [-To Assignments 1.12 - 1.14](/part1/anecdotes)
+
+## Part 2
+
+### [A: Rendering a collection, modules](https://fullstackopen.com/en/part2/rendering_a_collection_modules)
+
