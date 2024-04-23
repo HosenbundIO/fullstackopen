@@ -32,3 +32,6 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 ### [A: Rendering a collection, modules](https://fullstackopen.com/en/part2/rendering_a_collection_modules)
 
+#### [-To Assignments 2.1 - 2.5](/part2/courseinfo/)
+
+### [B: Forms]()

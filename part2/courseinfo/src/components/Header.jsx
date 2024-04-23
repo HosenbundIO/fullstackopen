@@ -1,7 +1,7 @@
-const Header = ({ course }) => {
-  console.log("Header:", course.name);
+const Header = ({ name }) => {
+  console.log("Header:", name);
 
-  return <h1>{course.name}</h1>;
+  return <h1>{name}</h1>;
 };
 
 export default Header;

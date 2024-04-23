@@ -25,5 +25,17 @@ Hence, the Course component contains the components defined in the previous part
 
 The rendered page can, for example, look as follows:
 
+## 2.2: Course Information, step 7
 
-## 2.2: Course information, step 7
+Show also the sum of the exercises of the course.
+
+
+## 2.3*: Course Information, step 8
+
+If you haven't done so already, calculate the sum of exercises with the array method reduce.
+
+## 2.4: Course Information, step 9
+
+Let's extend our application to allow for an arbitrary number of courses.
+
+## 2.5: Course Information, step 10
