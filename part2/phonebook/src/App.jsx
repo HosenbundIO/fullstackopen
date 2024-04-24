@@ -12,65 +12,78 @@ const App = () => {
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    console.log("effect");
     personsService.getAll().then((initialPersons) => {
-      console.log("promise fulfilled");
       setPersons(initialPersons);
     });
   }, []);
 
   const addPerson = (event) => {
     event.preventDefault();
-    console.log("button clicked", event.target);
-    console.log("newName", newName);
 
-    if (
-      persons.filter(
-        (person) => person.name.toLowerCase() === newName.toLowerCase()
-      ).length > 0
+    const personObject = {
+      name: newName,
+      number: newNumber,
+    };
+
+    const checkName = persons.find(
+      (person) => person.name.toLowerCase() === newName.toLowerCase()
+    );
+
+    if (checkName && checkName.number === personObject.number) {
+      window.alert(`${newName} is already added to the phonebook`);
+    } else if (
+      checkName &&
+      checkName.number !== personObject.number &&
+      window.confirm(
+        `${newName} is already added to the phonebook, replace the old number with a new one?`
+      )
     ) {
-      alert(`${newName} is already added to phonebook`);
-      return;
+      personsService
+        .update(checkName.id, personObject)
+        .then((returnedPerson) => {
+          setPersons(
+            persons.map((person) =>
+              person.id !== checkName.id ? person : returnedPerson
+            )
+          );
+          setNewName("");
+          setNewNumber("");
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+        });
     } else {
-      const personObject = {
-        name: newName,
-        number: newNumber,
-      };
-
-      personsService.create(personObject).then((returnedPerson) => {
-        console.log("returnedPerson", returnedPerson);
-        setPersons(persons.concat(returnedPerson));
-        setNewName("");
-        setNewNumber("");
-      });
+      personsService
+        .create(personObject)
+        .then((returnedPerson) => {
+          setPersons(persons.concat(returnedPerson));
+          setNewName("");
+          setNewNumber("");
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+        });
     }
   };
 
   const deletePerson = (id) => {
-    console.log("deletePerson", id);
     const person = persons.find((person) => person.id === id);
     if (window.confirm(`Delete ${person.name}`)) {
-      console.log("Delete confirmed");
-      console.log("person", person);
-      personsService.deleteResource(person.id).then((deletedPerson) => {
-        console.log("Deleted:", deletedPerson);
+      personsService.deleteResource(person.id).then(() => {
         setPersons(persons.filter((person) => person.id !== id));
       });
     }
   };
 
   const handleNameChange = (event) => {
-    console.log(event.target.value);
     setNewName(event.target.value);
   };
 
   const handleNumberChange = (event) => {
-    console.log(event.target.value);
     setNewNumber(event.target.value);
   };
 
   const handleFilterChange = (event) => {
-    console.log(event.target.value);
     setFilter(event.target.value);
   };
 
