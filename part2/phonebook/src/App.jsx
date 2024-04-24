@@ -4,12 +4,14 @@ import Heading from "./components/Heading";
 import Filter from "./components/Filter";
 import PersonForm from "./components/PersonForm";
 import Persons from "./components/Persons";
+import Notification from "./components/Notifaction";
 
 const App = () => {
   const [persons, setPersons] = useState([]);
   const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
   const [filter, setFilter] = useState("");
+  const [message, setMessage] = useState(null);
 
   useEffect(() => {
     personsService.getAll().then((initialPersons) => {
@@ -31,27 +33,31 @@ const App = () => {
 
     if (checkName && checkName.number === personObject.number) {
       window.alert(`${newName} is already added to the phonebook`);
-    } else if (
-      checkName &&
-      checkName.number !== personObject.number &&
-      window.confirm(
-        `${newName} is already added to the phonebook, replace the old number with a new one?`
-      )
-    ) {
-      personsService
-        .update(checkName.id, personObject)
-        .then((returnedPerson) => {
-          setPersons(
-            persons.map((person) =>
-              person.id !== checkName.id ? person : returnedPerson
-            )
-          );
-          setNewName("");
-          setNewNumber("");
-        })
-        .catch((error) => {
-          console.log(error.response.data);
-        });
+    } else if (checkName && checkName.number !== personObject.number) {
+      if (
+        window.confirm(
+          `${newName} is already added to the phonebook, replace the old number with a new one?`
+        )
+      ) {
+        personsService
+          .update(checkName.id, personObject)
+          .then((returnedPerson) => {
+            setPersons(
+              persons.map((person) =>
+                person.id !== checkName.id ? person : returnedPerson
+              )
+            );
+            setNewName("");
+            setNewNumber("");
+            setMessage(`Updated ${returnedPerson.name}`);
+            setTimeout(() => {
+              setMessage(null);
+            }, 5000);
+          })
+          .catch((error) => {
+            console.log(error.response.data);
+          });
+      }
     } else {
       personsService
         .create(personObject)
@@ -59,9 +65,14 @@ const App = () => {
           setPersons(persons.concat(returnedPerson));
           setNewName("");
           setNewNumber("");
+          setMessage(`Added ${returnedPerson.name}`);
+          setTimeout(() => {
+            setMessage(null);
+          }, 5000);
         })
         .catch((error) => {
           console.log(error.response.data);
+          setMessage(error.response.data.error);
         });
     }
   };
@@ -90,6 +101,7 @@ const App = () => {
   return (
     <div>
       <Heading text="Phonebook" />
+      <Notification message={message} />
       <Filter filter={filter} handleFilterChange={handleFilterChange} />
       <Heading text="Add a new" />
       <PersonForm
