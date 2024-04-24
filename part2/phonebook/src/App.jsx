@@ -46,6 +46,17 @@ const App = () => {
     }
   };
 
+  const deletePerson = (id) => {
+    console.log("deletePerson", id);
+    const person = persons.find((person) => person.id === id);
+    console.log("person", person);
+    personsService.deleteResource(person.id).then((deletedPerson) => {
+      console.log("Deleted:", deletedPerson)
+      setPersons(persons.filter((person) => person.id !== id))
+    });
+    
+  }
+
   const handleNameChange = (event) => {
     console.log(event.target.value);
     setNewName(event.target.value);
@@ -61,6 +72,7 @@ const App = () => {
     setFilter(event.target.value);
   };
 
+
   return (
     <div>
       <Heading text="Phonebook" />
@@ -74,7 +86,7 @@ const App = () => {
         handleNumberChange={handleNumberChange}
       />
       <Heading text="Numbers" />
-      <Persons filter={filter} persons={persons} />
+      <Persons filter={filter} persons={persons} deletePerson={deletePerson} />
     </div>
   );
 };

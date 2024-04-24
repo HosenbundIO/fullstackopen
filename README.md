@@ -44,7 +44,7 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 ### [D: Altering data in server](https://fullstackopen.com/en/part2/altering_data_in_server)
 
-#### [-To Assignments 2.12 - 2.15](https://fullstackopen.com/en/part2/altering_data_in_server#exercises-2-12-2-15)
+#### [-To Assignments 2.12 - 2.15](/part2/phonebook/)
 
 ### [E: Adding styles to React app]()
 
