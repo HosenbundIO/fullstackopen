@@ -46,6 +46,8 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 #### [-To Assignments 2.12 - 2.15](/part2/phonebook/)
 
-### [E: Adding styles to React app]()
+### [E: Adding styles to React app](https://fullstackopen.com/en/part2/adding_styles_to_react_app)
 
-#### [-To Assignments 2.]()
+#### [-To Assignments 2.16 - 2.17](/part2/phonebook/)
+
+#### [-To Assignments 2.18 - 2.20](/part2/)

@@ -2,7 +2,9 @@
 
 [Exercises 2.6 - 2.10](https://fullstackopen.com/en/part2/forms#exercises-2-6-2-10)
 [Exercise 2.11](https://fullstackopen.com/en/part2/getting_data_from_server#exercise-2-11)
-[Exercise 2.12 - 2.15](https://fullstackopen.com/en/part2/altering_data_in_server#exercises-2-12-2-15)
+[Exercises 2.12 - 2.15](https://fullstackopen.com/en/part2/altering_data_in_server#exercises-2-12-2-15)
+[Exercises 2.16 - 2.17](https://fullstackopen.com/en/part2/adding_styles_to_react_app#exercises-2-16-2-17)
+[Exercises 2.18 - 2.20](https://fullstackopen.com/en/part2/adding_styles_to_react_app#exercises-2-18-2-20)
 
 ## 2.6: The Phonebook, step 1
 
@@ -123,3 +125,13 @@ Why is there a star in the exercise? See here for the explanation.
 Change the functionality so that if a number is added to an already existing user, the new number will replace the old number. It's recommended to use the HTTP PUT method for updating the phone number.
 
 If the person's information is already in the phonebook, the application can ask the user to confirm the action.
+
+## 2.16: The Phonebook, step 11
+
+Use the improved error message example from part 2 as a guide to show a notification that lasts for a few seconds after a successful operation is executed (a person is added or a number is changed).
+
+## 2.17\*: The Phonebook, step 12
+
+Open your application in two browsers. If you delete a person in browser 1 a short while before attempting to change the person's phone number in browser 2, you will get the following error messages.
+
+Fix the issue according to the example shown in promise and errors in part 2. Modify the example so that the user is shown a message when the operation does not succeed. The messages shown for successful and unsuccessful events should look different:
