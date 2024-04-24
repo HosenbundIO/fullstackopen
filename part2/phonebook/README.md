@@ -1,6 +1,8 @@
 # Part 2
 
 [Exercises 2.6 - 2.10](https://fullstackopen.com/en/part2/forms#exercises-2-6-2-10)
+[Exercise 2.11](https://fullstackopen.com/en/part2/getting_data_from_server#exercise-2-11)
+[Exercise 2.12 - 2.15](https://fullstackopen.com/en/part2/altering_data_in_server#exercises-2-12-2-15)
 
 ## 2.6: The Phonebook, step 1
 
@@ -95,3 +97,16 @@ We continue with developing the phonebook. Store the initial state of the applic
 ```
 
 Start json-server on port 3001 and make sure that the server returns the list of people by going to the address http://localhost:3001/persons in the browser.
+
+## 2.12: The Phonebook, step 7
+
+Let's return to our phonebook application.
+
+Currently, the numbers that are added to the phonebook are not saved to a backend server. Fix this situation.
+
+## 2.13: The Phonebook, step 8
+Extract the code that handles the communication with the backend into its own module by following the example shown earlier in this part of the course material.
+
+## 2.14: The Phonebook, step 9
+
+## 2.15*: The Phonebook, step 10

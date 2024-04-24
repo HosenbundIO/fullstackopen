@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import personsService from "./services/persons";
 import Heading from "./components/Heading";
 import Filter from "./components/Filter";
 import PersonForm from "./components/PersonForm";
@@ -12,17 +12,18 @@ const App = () => {
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    console.log('effect')
-    axios.get('http://localhost:3001/persons').then(response => {
-      console.log('promise fulfilled')
-      setPersons(response.data)
-    })
-  }, [])
+    console.log("effect");
+    personsService.getAll().then((initialPersons) => {
+      console.log("promise fulfilled");
+      setPersons(initialPersons);
+    });
+  }, []);
 
   const addPerson = (event) => {
     event.preventDefault();
     console.log("button clicked", event.target);
     console.log("newName", newName);
+
     if (
       persons.filter(
         (person) => person.name.toLowerCase() === newName.toLowerCase()
@@ -35,9 +36,13 @@ const App = () => {
         name: newName,
         number: newNumber,
       };
-      setPersons(persons.concat(personObject));
-      setNewName("");
-      setNewNumber("");
+
+      personsService.create(personObject).then((returnedPerson) => {
+        console.log("returnedPerson", returnedPerson);
+        setPersons(persons.concat(returnedPerson));
+        setNewName("");
+        setNewNumber("");
+      });
     }
   };
 
