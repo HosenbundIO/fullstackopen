@@ -49,13 +49,15 @@ const App = () => {
   const deletePerson = (id) => {
     console.log("deletePerson", id);
     const person = persons.find((person) => person.id === id);
-    console.log("person", person);
-    personsService.deleteResource(person.id).then((deletedPerson) => {
-      console.log("Deleted:", deletedPerson)
-      setPersons(persons.filter((person) => person.id !== id))
-    });
-    
-  }
+    if (window.confirm(`Delete ${person.name}`)) {
+      console.log("Delete confirmed");
+      console.log("person", person);
+      personsService.deleteResource(person.id).then((deletedPerson) => {
+        console.log("Deleted:", deletedPerson);
+        setPersons(persons.filter((person) => person.id !== id));
+      });
+    }
+  };
 
   const handleNameChange = (event) => {
     console.log(event.target.value);
@@ -71,7 +73,6 @@ const App = () => {
     console.log(event.target.value);
     setFilter(event.target.value);
   };
-
 
   return (
     <div>
