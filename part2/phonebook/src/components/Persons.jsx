@@ -1,7 +1,7 @@
 import Person from "./Person";
 
 const Persons = ({ persons, filter, deletePerson }) => {
-  console.log('persons', persons)
+  console.log("persons", persons);
   return (
     <div>
       {persons

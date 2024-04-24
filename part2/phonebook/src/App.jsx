@@ -54,8 +54,12 @@ const App = () => {
               setMessage(null);
             }, 5000);
           })
-          .catch((error) => {
-            console.log(error.response.data);
+          .catch(() => {
+            setMessage({
+              text: `Information of ${checkName.name} has already been removed from the server`,
+              type: "error",
+            });
+            setPersons(persons.filter((person) => person.id !== checkName.id));
           });
       }
     } else {
@@ -65,7 +69,7 @@ const App = () => {
           setPersons(persons.concat(returnedPerson));
           setNewName("");
           setNewNumber("");
-          setMessage(`Added ${returnedPerson.name}`);
+          setMessage({ text: `Added ${returnedPerson.name}`, type: "success" });
           setTimeout(() => {
             setMessage(null);
           }, 5000);
@@ -80,9 +84,18 @@ const App = () => {
   const deletePerson = (id) => {
     const person = persons.find((person) => person.id === id);
     if (window.confirm(`Delete ${person.name}`)) {
-      personsService.deleteResource(person.id).then(() => {
-        setPersons(persons.filter((person) => person.id !== id));
-      });
+      personsService
+        .deleteResource(person.id)
+        .then(() => {
+          setPersons(persons.filter((person) => person.id !== id));
+        })
+        .catch(() => {
+          setMessage({
+            text: `Information of ${person.name} has already been removed from the server`,
+            type: "error",
+          });
+          setPersons(persons.filter((person) => person.id !== id));
+        });
     }
   };
 

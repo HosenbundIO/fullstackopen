@@ -1,6 +1,16 @@
 const Notification = ({ message }) => {
-  const notificationStyle = {
+  console.log("Notification message: ", message);
+  const notificationStyleSuccess = {
     color: "green",
+    background: "lightgrey",
+    fontSize: "20",
+    borderStyle: "solid",
+    borderRadius: "5",
+    padding: "10",
+    marginBottom: "10",
+  };
+  const notificationStyleError = {
+    color: "red",
     background: "lightgrey",
     fontSize: "20",
     borderStyle: "solid",
@@ -11,10 +21,19 @@ const Notification = ({ message }) => {
   if (message === null) {
     return null;
   }
+  if (message.type == "error") {
+    return (
+      <div style={notificationStyleError}>
+        <br />
+        {message.text}
+        <br />
+      </div>
+    );
+  }
   return (
-    <div style={notificationStyle}>
+    <div style={notificationStyleSuccess}>
       <br />
-      {message}
+      {message.text}
       <br />
     </div>
   );
