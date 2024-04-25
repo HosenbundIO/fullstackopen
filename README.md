@@ -50,4 +50,4 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 #### [-To Assignments 2.16 - 2.17](/part2/phonebook/)
 
-#### [-To Assignments 2.18 - 2.20](/part2/)
+#### [-To Assignments 2.18 - 2.20](/part2/dataforcountries)

@@ -4,7 +4,6 @@
 [Exercise 2.11](https://fullstackopen.com/en/part2/getting_data_from_server#exercise-2-11)
 [Exercises 2.12 - 2.15](https://fullstackopen.com/en/part2/altering_data_in_server#exercises-2-12-2-15)
 [Exercises 2.16 - 2.17](https://fullstackopen.com/en/part2/adding_styles_to_react_app#exercises-2-16-2-17)
-[Exercises 2.18 - 2.20](https://fullstackopen.com/en/part2/adding_styles_to_react_app#exercises-2-18-2-20)
 
 ## 2.6: The Phonebook, step 1
 
