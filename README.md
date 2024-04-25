@@ -51,3 +51,13 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 #### [-To Assignments 2.16 - 2.17](/part2/phonebook/)
 
 #### [-To Assignments 2.18 - 2.20](/part2/dataforcountries)
+
+## Part 3 Programming a Server with NodeJS and Express
+
+### [A: Node.js and Express](https://fullstackopen.com/en/part3/node_js_and_express)
+
+#### [-To Assignments 3.1 - 3.6]()
+
+#### [-To Assignments 3.7 - 3.8]()
+
+### [B: Deploying App to Internet]()
