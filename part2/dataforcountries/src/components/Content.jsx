@@ -1,6 +1,6 @@
 import CountryContent from "./CountryContent";
 
-const Content = ({ filteredCountries }) => {
+const Content = ({ filteredCountries, handleClick }) => {
   if (filteredCountries.length > 10) {
     return <div>Too many</div>;
   } else if (filteredCountries.length === 1) {
@@ -9,7 +9,14 @@ const Content = ({ filteredCountries }) => {
     return (
       <div>
         {filteredCountries.map((country) => {
-          return <div key={country.name.common}>{country.name.common}</div>;
+          return (
+            <div key={country.name.common}>
+              {country.name.common}
+              <button onClick={() => handleClick(country.name.common)}>
+                show
+              </button>
+            </div>
+          );
         })}
       </div>
     );

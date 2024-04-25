@@ -1,5 +1,5 @@
 const CountryContent = ({ country }) => {
-  console.log(country[0]);
+  console.log(country);
   return (
     <div>
       <h2>{country[0].name.common}</h2>
