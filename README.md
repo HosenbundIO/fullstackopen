@@ -56,7 +56,7 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 ### [A: Node.js and Express](https://fullstackopen.com/en/part3/node_js_and_express)
 
-#### [-To Assignments 3.1 - 3.6]()
+#### [-To Assignments 3.1 - 3.6](/part3/phonebook/)
 
 #### [-To Assignments 3.7 - 3.8]()
 
