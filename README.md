@@ -58,6 +58,6 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 #### [-To Assignments 3.1 - 3.6](/part3/phonebook/)
 
-#### [-To Assignments 3.7 - 3.8]()
+#### [-To Assignments 3.7 - 3.8](/part3/phonebook/)
 
 ### [B: Deploying App to Internet]()
