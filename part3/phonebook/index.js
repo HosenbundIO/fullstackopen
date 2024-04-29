@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const app = express();
 app.use(express.json());
@@ -19,6 +20,7 @@ morgan.format('myformat', (tokens, req, res) => {
 
 app.use(morgan('myformat'));
 app.use(express.static('dist'));
+app.use(cors());
 
 let persons = [
   {
