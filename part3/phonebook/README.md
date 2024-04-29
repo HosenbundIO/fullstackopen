@@ -73,3 +73,9 @@ Implement error handling for creating new entries. The request is not allowed to
 </ul>
 
 Respond to requests like these with the appropriate status code, and also send back information that explains the reason for the error, e.g.:
+
+```javascript
+{
+  error: 'name must be unique';
+}
+```
