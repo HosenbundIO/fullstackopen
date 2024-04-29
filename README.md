@@ -60,4 +60,6 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 #### [-To Assignments 3.7 - 3.8](/part3/phonebook/)
 
-### [B: Deploying App to Internet]()
+### [B: Deploying App to Internet](https://fullstackopen.com/en/part3/deploying_app_to_internet)
+
+#### [-To Assignements 3.9 - 3.11]()
