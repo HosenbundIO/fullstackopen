@@ -62,4 +62,6 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 ### [B: Deploying App to Internet](https://fullstackopen.com/en/part3/deploying_app_to_internet)
 
-#### [-To Assignements 3.9 - 3.11]()
+#### [-To Assignements 3.9 - 3.11](/part3/phonebook/)
+
+#### --> [Link to Web App](https://fullstackopen-zqy4.onrender.com/)
