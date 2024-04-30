@@ -30,7 +30,7 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 ## Part 2 Communicating with Server
 
-### [A: Rendering a collection, modules](https://fullstackopen.com/en/part2/rendering_a_collection_modules)
+### [A: Rendering a Collection, Modules](https://fullstackopen.com/en/part2/rendering_a_collection_modules)
 
 #### [-To Assignments 2.1 - 2.5](/part2/courseinfo/)
 
@@ -38,11 +38,11 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 #### [-To Assignments 2.6 - 2.10](/part2/phonebook)
 
-### [C: Getting data from server](https://fullstackopen.com/en/part2/getting_data_from_server)
+### [C: Getting Data from Server](https://fullstackopen.com/en/part2/getting_data_from_server)
 
 #### [-To Assignments 2.11](/part2/phonebook/)
 
-### [D: Altering data in server](https://fullstackopen.com/en/part2/altering_data_in_server)
+### [D: Altering Data in Server](https://fullstackopen.com/en/part2/altering_data_in_server)
 
 #### [-To Assignments 2.12 - 2.15](/part2/phonebook/)
 
@@ -65,3 +65,5 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 #### [-To Assignements 3.9 - 3.11](/part3/phonebook/)
 
 #### --> [Link to Web App](https://fullstackopen-zqy4.onrender.com/)
+
+### [C: Saving Data to MongoDB](https://fullstackopen.com/en/part3/saving_data_to_mongo_db)
