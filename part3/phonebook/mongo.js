@@ -23,6 +23,8 @@ const person = new Person({
   number: '0888888888',
 });
 
+var test = 'test';
+
 person.save().then((result) => {
   console.log('person saved!');
   mongoose.connection.close();
