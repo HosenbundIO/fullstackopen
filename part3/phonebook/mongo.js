@@ -18,14 +18,33 @@ const personSchema = new mongoose.Schema({
 
 const Person = mongoose.model('Person', personSchema);
 
-const person = new Person({
-  name: 'David Ivanov',
-  number: '0888888888',
-});
+console.log('args.length:', process.argv.length);
 
-var test = 'test';
+getArgs = () => {
+  if (process.argv.length === 3) {
+    console.log('phonebook:');
+    Person.find({}).then((result) => {
+      result.forEach((person) => {
+        console.log(person.name, person.number);
+      });
+      mongoose.connection.close();
+    });
+  } else if (process.argv.length == 5) {
+    console.log('args:', process.argv[3], process.argv[4]);
+    const person = new Person({
+      name: process.argv[3],
+      number: process.argv[4],
+    });
 
-person.save().then((result) => {
-  console.log('person saved!');
-  mongoose.connection.close();
-});
+    person.save().then((result) => {
+      console.log(`added ${person.name} number ${person.number} to phonebook`);
+      mongoose.connection.close();
+    });
+  } else {
+    console.log('Invalid number of arguments');
+    mongoose.connection.close();
+  }
+};
+
+getArgs();
+
