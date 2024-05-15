@@ -127,3 +127,9 @@ NB If you use Render, make sure the directory dist is not ignored by git on the 
 Also, make sure that the frontend still works locally (in development mode when started with command npm run dev).
 
 If you have problems getting the app working make sure that your directory structure matches the example app.
+
+## 3.12: Command-line Database
+
+Create a cloud-based MongoDB database for the phonebook application with MongoDB Atlas.
+
+Create a mongo.js file in the project directory, that can be used for adding entries to the phonebook, and for listing all of the existing entries in the phonebook.
