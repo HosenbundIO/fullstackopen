@@ -133,3 +133,9 @@ If you have problems getting the app working make sure that your directory struc
 Create a cloud-based MongoDB database for the phonebook application with MongoDB Atlas.
 
 Create a mongo.js file in the project directory, that can be used for adding entries to the phonebook, and for listing all of the existing entries in the phonebook.
+
+The application should work as follows. You use the program by passing three command-line arguments (the first is the password).
+
+The new entry to the phonebook will be saved to the database. Notice that if the name contains whitespace characters, it must be enclosed in quotes.
+
+If the password is the only parameter given to the program, then the program should display all of the entries in the phonebook.
