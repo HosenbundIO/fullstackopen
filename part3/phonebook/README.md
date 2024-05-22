@@ -118,7 +118,7 @@ NOTE: as it was said, you should deploy the BACKEND to the cloud service. If you
 
 You shall NOT be deploying the frontend directly at any stage of this part. It is just backend repository that is deployed throughout the whole part, nothing else.
 
-## 3.11 Full Stack Phonebook
+## 3.11 Full Stack Phonebook, step 11
 
 Generate a production build of your frontend, and add it to the Internet application using the method introduced in this part.
 
@@ -128,7 +128,7 @@ Also, make sure that the frontend still works locally (in development mode when 
 
 If you have problems getting the app working make sure that your directory structure matches the example app.
 
-## 3.12: Command-line Database
+## 3.12: Command-line Database, step 12
 
 Create a cloud-based MongoDB database for the phonebook application with MongoDB Atlas.
 
@@ -139,3 +139,10 @@ The application should work as follows. You use the program by passing three com
 The new entry to the phonebook will be saved to the database. Notice that if the name contains whitespace characters, it must be enclosed in quotes.
 
 If the password is the only parameter given to the program, then the program should display all of the entries in the phonebook.
+
+## 3.13: Phonebook database, step 13
+Change the fetching of all phonebook entries so that the data is fetched from the database.
+
+Verify that the frontend works after the changes have been made.
+
+In the following exercises, write all Mongoose-specific code into its own module, just like we did in the chapter Database configuration into its own module.

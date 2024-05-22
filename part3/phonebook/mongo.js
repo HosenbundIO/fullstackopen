@@ -43,8 +43,8 @@ getArgs = () => {
   } else {
     console.log('Invalid number of arguments');
     mongoose.connection.close();
+    process.exit(1);
   }
 };
 
 getArgs();
-
