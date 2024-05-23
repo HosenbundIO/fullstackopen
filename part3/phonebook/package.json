@@ -8,6 +8,7 @@
     "dev": "nodemon index.js",
     "build:ui": "rm -rf dist && cd ../../part2/phonebook && npm run build --prod && cp -r dist ../../part3/phonebook/",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push --set-upstream origin main",
+    "deploy:to-other-repo": "npm run build:ui && git add . && git commit -m uibuild && git push --set-upstream origin main && git push git@github.com:HosenbundIO/production-fullstackopen.gitgit@github.com:HosenbundIO/production-fullstackopen.git",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David Ivanov",
