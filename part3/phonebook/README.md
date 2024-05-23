@@ -11,6 +11,8 @@
 [Exercises 3.13 - 3.14](https://fullstackopen.com/en/part3/saving_data_to_mongo_db#exercises-3-13-3-14)
 <br>
 [Exercises 3.15 - 3.18](https://fullstackopen.com/en/part3/saving_data_to_mongo_db#exercises-3-15-3-18)
+<br>
+[Exercises 3.19 - 3.21](https://fullstackopen.com/en/part3/validation_and_es_lint#exercises-3-19-3-21)
 
 ## 3.1: Phonebook Backend, step 1
 
@@ -183,3 +185,9 @@ Verify that the frontend works after making your changes.
 ## 3.18\*: Phonebook Database, step 18
 
 Also update the handling of the api/persons/:id and info routes to use the database, and verify that they work directly with the browser, Postman, or VS Code REST client.
+
+## 3.19\*: Phonebook Database, step 19
+
+Expand the validation so that the name stored in the database has to be at least three characters long.
+
+Expand the frontend so that it displays some form of error message when a validation error occurs
