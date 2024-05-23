@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import personsService from "./services/persons";
-import Heading from "./components/Heading";
-import Filter from "./components/Filter";
-import PersonForm from "./components/PersonForm";
-import Persons from "./components/Persons";
-import Notification from "./components/Notifaction";
+import { useState, useEffect } from 'react';
+import personsService from './services/persons';
+import Heading from './components/Heading';
+import Filter from './components/Filter';
+import PersonForm from './components/PersonForm';
+import Persons from './components/Persons';
+import Notification from './components/Notifaction';
 
 const App = () => {
   const [persons, setPersons] = useState([]);
-  const [newName, setNewName] = useState("");
-  const [newNumber, setNewNumber] = useState("");
-  const [filter, setFilter] = useState("");
+  const [newName, setNewName] = useState('');
+  const [newNumber, setNewNumber] = useState('');
+  const [filter, setFilter] = useState('');
   const [message, setMessage] = useState(null);
 
   useEffect(() => {
@@ -47,8 +47,8 @@ const App = () => {
                 person.id !== checkName.id ? person : returnedPerson
               )
             );
-            setNewName("");
-            setNewNumber("");
+            setNewName('');
+            setNewNumber('');
             setMessage(`Updated ${returnedPerson.name}`);
             setTimeout(() => {
               setMessage(null);
@@ -57,7 +57,7 @@ const App = () => {
           .catch(() => {
             setMessage({
               text: `Information of ${checkName.name} has already been removed from the server`,
-              type: "error",
+              type: 'error',
             });
             setPersons(persons.filter((person) => person.id !== checkName.id));
           });
@@ -67,16 +67,17 @@ const App = () => {
         .create(personObject)
         .then((returnedPerson) => {
           setPersons(persons.concat(returnedPerson));
-          setNewName("");
-          setNewNumber("");
-          setMessage({ text: `Added ${returnedPerson.name}`, type: "success" });
+          setNewName('');
+          setNewNumber('');
+          setMessage({ text: `Added ${returnedPerson.name}`, type: 'success' });
           setTimeout(() => {
             setMessage(null);
           }, 5000);
         })
         .catch((error) => {
-          console.log(error.response.data);
-          setMessage(error.response.data.error);
+          console.log('error.response: ', error.response);
+          console.log('response.data.error: ', error.response.data.error);
+          setMessage({ text: error.response.data.error, type: 'error' });
         });
     }
   };
@@ -92,7 +93,7 @@ const App = () => {
         .catch(() => {
           setMessage({
             text: `Information of ${person.name} has already been removed from the server`,
-            type: "error",
+            type: 'error',
           });
           setPersons(persons.filter((person) => person.id !== id));
         });
