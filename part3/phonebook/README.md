@@ -140,9 +140,16 @@ The new entry to the phonebook will be saved to the database. Notice that if the
 
 If the password is the only parameter given to the program, then the program should display all of the entries in the phonebook.
 
-## 3.13: Phonebook database, step 13
+## 3.13: Phonebook Database, step 13
+
 Change the fetching of all phonebook entries so that the data is fetched from the database.
 
 Verify that the frontend works after the changes have been made.
 
 In the following exercises, write all Mongoose-specific code into its own module, just like we did in the chapter Database configuration into its own module.
+
+## 3.14: Phonebook Database, step 14
+
+Change the backend so that new numbers are saved to the database. Verify that your frontend still works after the changes.
+
+At this stage, you can ignore whether there is already a person in the database with the same name as the person you are adding.
