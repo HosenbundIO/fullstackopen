@@ -167,3 +167,7 @@ At this stage, you can ignore whether there is already a person in the database 
 Change the backend so that deleting phonebook entries is reflected in the database.
 
 Verify that the frontend still works after making the changes.
+
+## 3.16: Phonebook Database, step 16
+
+Move the error handling of the application to a new error handler middleware.
