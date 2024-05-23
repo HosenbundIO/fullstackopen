@@ -45,8 +45,8 @@ app.get('/api/notes/:id', (request, response, next) => {
 //   response.status(204).end();
 // });
 
-app.delete('api/notes/:id', (request, response, next) => {
-  Note.findByIdAndRemove(request.params.id)
+app.delete('/api/notes/:id', (request, response, next) => {
+  Note.findByIdAndDelete(request.params.id)
     .then((result) => {
       response.status(204).end();
     })
@@ -75,7 +75,7 @@ app.delete('api/notes/:id', (request, response, next) => {
 //   });
 // });
 
-app.post('api/notes', (request, response, next) => {
+app.post('/api/notes', (request, response, next) => {
   const body = request.body;
 
   if (body.content === undefined) {
@@ -92,7 +92,7 @@ app.post('api/notes', (request, response, next) => {
   }
 });
 
-app.put('api/notes/:id', (request, response, next) => {
+app.put('/api/notes/:id', (request, response, next) => {
   const body = request.body;
 
   const note = {
