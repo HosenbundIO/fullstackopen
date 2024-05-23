@@ -191,3 +191,20 @@ Also update the handling of the api/persons/:id and info routes to use the datab
 Expand the validation so that the name stored in the database has to be at least three characters long.
 
 Expand the frontend so that it displays some form of error message when a validation error occurs
+
+## 3.20\*: Phonebook Database, step 20
+
+Add validation to your phonebook application, which will make sure that phone numbers are of the correct form. A phone number must:
+
+<ul>
+<li>have length of 8 or more</li>
+<li>be formed of two parts that are separated by -, the first part has two or three numbers and the second part also consists of numbers</li>
+<ul>
+<li>eg. 09-1234556 and 040-22334455 are valid phone numbers</li>
+<li>eg. 1234556, 1-22334455 and 10-22-334455 are invalid</li>
+</ul>
+
+</ul>
+Use a Custom validator to implement the second part of the validation.
+
+If an HTTP POST request tries to add a person with an invalid phone number, the server should respond with an appropriate status code and error message.

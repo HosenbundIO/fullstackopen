@@ -73,3 +73,5 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 #### [-To Assignments 3.12 - 3.18](/part3/phonebook/)
 
 ### [D: Validation and ESLint](https://fullstackopen.com/en/part3/validation_and_es_lint)
+
+#### [-To Assignments 3.19 - 3.21](/part3/phonebook/)
