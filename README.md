@@ -70,4 +70,4 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 ### [C: Saving Data to MongoDB](https://fullstackopen.com/en/part3/saving_data_to_mongo_db)
 
-#### [-To Assignments 3.12 - 3.15](/part3/phonebook/)
+#### [-To Assignments 3.12 - 3.18](/part3/phonebook/)
