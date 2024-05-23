@@ -3,6 +3,14 @@
 [Exercises 3.1 - 3.6](https://fullstackopen.com/en/part3/node_js_and_express#exercises-3-1-3-6)
 <br>
 [Exercises 3.7 - 3.8](https://fullstackopen.com/en/part3/node_js_and_express#exercises-3-7-3-8)
+<br>
+[Exercises 3.9 - 3.11](https://fullstackopen.com/en/part3/deploying_app_to_internet#exercises-3-9-3-11)
+<br>
+[Exercises 3.12](https://fullstackopen.com/en/part3/saving_data_to_mongo_db#exercise-3-12)
+<br>
+[Exercises 3.13 - 3.14](https://fullstackopen.com/en/part3/saving_data_to_mongo_db#exercises-3-13-3-14)
+<br>
+[Exercises 3.15 - 3.18](https://fullstackopen.com/en/part3/saving_data_to_mongo_db#exercises-3-15-3-18)
 
 ## 3.1: Phonebook Backend, step 1
 
@@ -153,3 +161,9 @@ In the following exercises, write all Mongoose-specific code into its own module
 Change the backend so that new numbers are saved to the database. Verify that your frontend still works after the changes.
 
 At this stage, you can ignore whether there is already a person in the database with the same name as the person you are adding.
+
+## 3.15: Phonebook Database, step 15
+
+Change the backend so that deleting phonebook entries is reflected in the database.
+
+Verify that the frontend still works after making the changes.
