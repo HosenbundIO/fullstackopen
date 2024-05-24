@@ -20,28 +20,28 @@ const Person = mongoose.model('Person', personSchema);
 
 console.log('args.length:', process.argv.length);
 
-let persons = [
-  {
-    id: 1,
-    name: 'Arto Hellas',
-    number: '040-123456',
-  },
-  {
-    id: 2,
-    name: 'Ada Lovelace',
-    number: '39-44-5323523',
-  },
-  {
-    id: 3,
-    name: 'Dan Abramov',
-    number: '12-43-234345',
-  },
-  {
-    id: 4,
-    name: 'Mary Poppendieck',
-    number: '39-23-6423122',
-  },
-];
+// let persons = [
+//   {
+//     id: 1,
+//     name: 'Arto Hellas',
+//     number: '040-123456',
+//   },
+//   {
+//     id: 2,
+//     name: 'Ada Lovelace',
+//     number: '39-44-5323523',
+//   },
+//   {
+//     id: 3,
+//     name: 'Dan Abramov',
+//     number: '12-43-234345',
+//   },
+//   {
+//     id: 4,
+//     name: 'Mary Poppendieck',
+//     number: '39-23-6423122',
+//   },
+// ];
 
 // let promiseChain = Promise.resolve();
 
@@ -58,7 +58,7 @@ let persons = [
 //   });
 // });
 
-getArgs = () => {
+let getArgs = () => {
   if (process.argv.length === 3) {
     console.log('phonebook:');
     Person.find({}).then((result) => {
@@ -74,7 +74,7 @@ getArgs = () => {
       number: process.argv[4],
     });
 
-    person.save().then((result) => {
+    person.save().then(() => {
       console.log(`added ${person.name} number ${person.number} to phonebook`);
       mongoose.connection.close();
     });

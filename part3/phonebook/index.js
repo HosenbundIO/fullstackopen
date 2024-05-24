@@ -42,10 +42,11 @@ app.get('/api/persons/:id', (request, response, next) => {
     .catch((error) => next(error));
 });
 
-app.get('/info', (request, response) => {
+app.get('/info', async (request, response) => {
   const date = new Date();
+  const count = await Person.countDocuments();
   response.send(
-    `<p>Phonebook has info for ${persons.length} people </p>  <p>${date}</p>`
+    `<p>Phonebook has info for ${count} people </p>  <p>${date}</p>`
   );
 });
 
@@ -58,7 +59,7 @@ app.get('/info', (request, response) => {
 
 app.delete('/api/persons/:id', (request, response, next) => {
   Person.findByIdAndDelete(request.params.id)
-    .then((result) => {
+    .then(() => {
       response.status(204).end();
     })
     .catch((error) => next(error));
