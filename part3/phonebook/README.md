@@ -13,6 +13,8 @@
 [Exercises 3.15 - 3.18](https://fullstackopen.com/en/part3/saving_data_to_mongo_db#exercises-3-15-3-18)
 <br>
 [Exercises 3.19 - 3.21](https://fullstackopen.com/en/part3/validation_and_es_lint#exercises-3-19-3-21)
+<br>
+[Exercise 3.22](https://fullstackopen.com/en/part3/validation_and_es_lint#exercise-3-22)
 
 ## 3.1: Phonebook Backend, step 1
 
@@ -218,3 +220,7 @@ Push the latest version to Fly.io/Render and verify that everything works there 
 NOTE: you should deploy the BACKEND to the cloud service. If you are using Fly.io the commands should be run in the root directory of the backend (that is, in the same directory where the backend package.json is). In case of using Render, the backend must be in the root of your repository.
 
 You shall NOT be deploying the frontend directly at any stage of this part. It is just backend repository that is deployed throughout the whole part, nothing else.
+
+## 3.22: Lint configuration
+
+Add ESlint to your application and fix all the warnings.
