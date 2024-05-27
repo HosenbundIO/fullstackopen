@@ -75,3 +75,9 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 ### [D: Validation and ESLint](https://fullstackopen.com/en/part3/validation_and_es_lint)
 
 #### [-To Assignments 3.19 - 3.22](/part3/phonebook/)
+
+## Part 4 Testing Express Servers, User Administration
+
+### [A: Structure of Backend Application, Introduction to Testing](https://fullstackopen.com/en/part4/structure_of_backend_application_introduction_to_testing)
+
+#### [-To Assignments 4.1 - 4.2]()
