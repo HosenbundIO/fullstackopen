@@ -90,3 +90,35 @@ test('dummy returns one', () => {
   assert.strictEqual(result, 1);
 });
 ```
+
+## 4.4: Helper Functions and Unit Tests, step 2
+
+Define a new totalLikes function that receives a list of blog posts as a parameter. The function returns the total sum of likes in all of the blog posts.
+
+Write appropriate tests for the function. It's recommended to put the tests inside of a describe block so that the test report output gets grouped nicely
+
+Defining test inputs for the function can be done like this:
+
+```javascript
+describe('total likes', () => {
+  const listWithOneBlog = [
+    {
+      _id: '5a422aa71b54a676234d17f8',
+      title: 'Go To Statement Considered Harmful',
+      author: 'Edsger W. Dijkstra',
+      url: 'https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf',
+      likes: 5,
+      __v: 0,
+    },
+  ];
+
+  test('when list has only one blog, equals the likes of that', () => {
+    const result = listHelper.totalLikes(listWithOneBlog);
+    assert.strictEqual(result, 5);
+  });
+});
+```
+
+If defining your own test input list of blogs is too much work, you can use the ready-made list here.
+
+You are bound to run into problems while writing tests. Remember the things that we learned about debugging in part 3. You can print things to the console with console.log even during test execution.
