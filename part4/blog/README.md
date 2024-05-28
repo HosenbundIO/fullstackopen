@@ -122,3 +122,21 @@ describe('total likes', () => {
 If defining your own test input list of blogs is too much work, you can use the ready-made list here.
 
 You are bound to run into problems while writing tests. Remember the things that we learned about debugging in part 3. You can print things to the console with console.log even during test execution.
+
+## 4.5\*: Helper Functions and Unit Tests, step 3
+
+Define a new favoriteBlog function that receives a list of blogs as a parameter. The function finds out which blog has the most likes. If there are many top favorites, it is enough to return one of them.
+
+The value returned by the function could be in the following format:
+
+```javascript
+{
+  title: "Canonical string reduction",
+  author: "Edsger W. Dijkstra",
+  likes: 12
+}
+```
+
+NB when you are comparing objects, the deepStrictEqual method is probably what you want to use, since the strictEqual tries to verify that the two values are the same value, and not just that they contain the same properties. For differences between various assert module functions, you can refer to this Stack Overflow answer.
+
+Write the tests for this exercise inside of a new describe block. Do the same for the remaining exercises as well.
