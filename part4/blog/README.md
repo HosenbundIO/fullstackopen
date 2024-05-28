@@ -140,3 +140,33 @@ The value returned by the function could be in the following format:
 NB when you are comparing objects, the deepStrictEqual method is probably what you want to use, since the strictEqual tries to verify that the two values are the same value, and not just that they contain the same properties. For differences between various assert module functions, you can refer to this Stack Overflow answer.
 
 Write the tests for this exercise inside of a new describe block. Do the same for the remaining exercises as well.
+
+## 4.6\*: Helper Functions and Unit Test, step 4
+
+This and the next exercise are a little bit more challenging. Finishing these two exercises is not required to advance in the course material, so it may be a good idea to return to these once you're done going through the material for this part in its entirety.
+
+Finishing this exercise can be done without the use of additional libraries. However, this exercise is a great opportunity to learn how to use the Lodash library.
+
+Define a function called mostBlogs that receives an array of blogs as a parameter. The function returns the author who has the largest amount of blogs. The return value also contains the number of blogs the top author has:
+
+```javascript
+{
+  author: "Robert C. Martin",
+  blogs: 3
+}
+```
+
+If there are many top bloggers, then it is enough to return any one of them.
+
+## 4.7\*: Helper Functions and Unit Tests, step 5
+
+Define a function called mostLikes that receives an array of blogs as its parameter. The function returns the author, whose blog posts have the largest amount of likes. The return value also contains the total number of likes that the author has received:
+
+```javascript
+{
+  author: "Edsger W. Dijkstra",
+  likes: 17
+}
+```
+
+If there are many top bloggers, then it is enough to show any one of them
