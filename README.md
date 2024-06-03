@@ -81,3 +81,5 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 ### [A: Structure of Backend Application, Introduction to Testing](https://fullstackopen.com/en/part4/structure_of_backend_application_introduction_to_testing)
 
 #### [-To Assignments 4.1 - 4.2](/part4/blog/)
+
+#### [-To Assignments 4.3 - 4.7](/part4/blog/)
