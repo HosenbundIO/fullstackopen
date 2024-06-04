@@ -60,6 +60,25 @@ test('Verify POST request is saved correctly', async () => {
   assert(title.includes('String3'));
 });
 
+test('Verify likes default value on POST', async () => {
+  const newBlog = {
+    title: 'String3',
+    author: 'String3',
+    url: 'String3',
+  };
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(201)
+    .expect('Content-Type', /application\/json/);
+
+  const blogsAtEnd = await helper.blogsInDb();
+  // console.log(`\n--------------${JSON.stringify(blogsAtEnd)}--------------\n`);
+
+  assert.strictEqual(blogsAtEnd[blogsAtEnd.length - 1].likes, 0)
+});
+
 after(async () => {
   await mongoose.connection.close();
 });
