@@ -118,6 +118,22 @@ describe('When there is initially some blogs saved', () => {
       assert(!titles.includes(blogToDelete.title));
     });
   });
+
+  describe('update blog posts', () => {
+    test('update a specific blog post', async () => {
+      const blogsAtStart = await helper.blogsInDb();
+      const blogToUpdate = blogsAtStart[0];
+      const update = { likes: 100 };
+
+      await api.put(`/api/blogs/${blogToUpdate.id}`).send(update).expect(200);
+
+      const blogsAtEnd = await helper.blogsInDb();
+      const updatedBlog = blogsAtEnd.find(
+        (blog) => blog.id === blogToUpdate.id
+      );
+      assert.strictEqual(updatedBlog.likes, 100);
+    });
+  });
 });
 
 after(async () => {
