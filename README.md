@@ -88,4 +88,4 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 
 #### [-To Assignments 4.8 - 4.12](/part4/blog/)
 
-#### [-To Assignments 4.13 - 4.14]()
+#### [-To Assignments 4.13 - 4.14](/part4/blog/)
