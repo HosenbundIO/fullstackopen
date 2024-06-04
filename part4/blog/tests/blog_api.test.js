@@ -5,6 +5,7 @@ const app = require('../app');
 const assert = require('assert');
 const Blog = require('../models/blog');
 const helper = require('./test_helper');
+const { truncate } = require('fs');
 
 const api = supertest(app);
 
@@ -28,6 +29,15 @@ test('There are as many blogs as the initialBlogs Object', async () => {
   const response = await api.get('/api/blogs');
 
   assert.strictEqual(response.body.length, 3);
+});
+
+test('Verify the unique identifier property is named id', async () => {
+  const response = await api.get('/api/blogs');
+
+//   console.log(
+//     `\n--------------${JSON.stringify(!!response.body[0].id)}--------------\n`
+//   );
+  assert.strictEqual(response.body[0].hasOwnProperty('id'), true);
 });
 
 after(async () => {
