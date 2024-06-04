@@ -76,7 +76,27 @@ test('Verify likes default value on POST', async () => {
   const blogsAtEnd = await helper.blogsInDb();
   // console.log(`\n--------------${JSON.stringify(blogsAtEnd)}--------------\n`);
 
-  assert.strictEqual(blogsAtEnd[blogsAtEnd.length - 1].likes, 0)
+  assert.strictEqual(blogsAtEnd[blogsAtEnd.length - 1].likes, 0);
+});
+
+test('Verify if title or url property is missing leads to 400', async () => {
+  const newBlog = {
+    author: 'String3',
+    url: 'String3',
+    likes: 3,
+  };
+
+  const newBlog1 = {
+    title: 'String4',
+    author: 'String4',
+    likes: 4,
+  };
+
+  await api.post('/api/blogs').send(newBlog).expect(400);
+  await api.post('/api/blogs').send(newBlog1).expect(400);
+
+  const blogsAtEnd = helper.blogsInDb();
+  assert.strictEqual(blogsAtEnd.length, helper.initialBlogs.length);
 });
 
 after(async () => {
