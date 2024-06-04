@@ -5,7 +5,6 @@ const app = require('../app');
 const assert = require('assert');
 const Blog = require('../models/blog');
 const helper = require('./test_helper');
-const { truncate } = require('fs');
 
 const api = supertest(app);
 
@@ -18,7 +17,7 @@ beforeEach(async () => {
   await Promise.all(promiseArray);
 });
 
-test('blogs are returned as json', async () => {
+test('Blogs are returned as json', async () => {
   await api
     .get('/api/blogs')
     .expect(200)
@@ -34,10 +33,31 @@ test('There are as many blogs as the initialBlogs Object', async () => {
 test('Verify the unique identifier property is named id', async () => {
   const response = await api.get('/api/blogs');
 
-//   console.log(
-//     `\n--------------${JSON.stringify(!!response.body[0].id)}--------------\n`
-//   );
+  //   console.log(
+  //     `\n--------------${JSON.stringify(!!response.body[0].id)}--------------\n`
+  //   );
   assert.strictEqual(response.body[0].hasOwnProperty('id'), true);
+});
+
+test('Verify POST request is saved correctly', async () => {
+  const newBlog = {
+    title: 'String3',
+    author: 'String3',
+    url: 'String3',
+    likes: 3,
+  };
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(201)
+    .expect('Content-Type', /application\/json/);
+
+  const blogsAtEnd = await helper.blogsInDb();
+  assert.strictEqual(helper.initialBlogs.length + 1, blogsAtEnd.length);
+
+  const title = blogsAtEnd.map((blog) => blog.title);
+  assert(title.includes('String3'));
 });
 
 after(async () => {
