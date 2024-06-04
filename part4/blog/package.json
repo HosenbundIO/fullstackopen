@@ -4,12 +4,12 @@
   "description": "blog list application, that allows users to save information about interesting blog they have stumbled across on the internet",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
     "build:ui": "rm -rf dist && cd ../../part2/phonebook && npm run build --prod && cp -r dist ../../part3/phonebook/",
     "deploy:to-other-repo": "cd ../../../production-fullstackopen && rm -rf * && cp -r ../fullstackopen/part3/phonebook/. . && git add . && git commit -m deploy && git push",
     "lint": "eslint .",
-    "test": "node --test"
+    "test": "NODE_ENV=test node --test"
   },
   "author": "HosenbundIO",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "mongoose": "^8.4.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.1"
+    "nodemon": "^3.1.1",
+    "supertest": "^7.0.0"
   }
 }
