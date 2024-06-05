@@ -91,3 +91,7 @@ Welcome to my Full Stack Open Exercises Repository. Inside, you'll discover a co
 #### [-To Assignments 4.13 - 4.14](/part4/blog/)
 
 ### [C: User Administration](https://fullstackopen.com/en/part4/user_administration)
+
+### [D: Token Authentication](https://fullstackopen.com/en/part4/token_authentication)
+
+#### [-To Assignments 4.15 - 4.23](/part4/blog/)

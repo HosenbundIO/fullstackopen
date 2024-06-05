@@ -7,6 +7,8 @@
 [Exercises 4.8 - 4.12](https://fullstackopen.com/en/part4/testing_the_backend#exercises-4-8-4-12)
 <br>
 [Exercises 4.13 - 4.14](https://fullstackopen.com/en/part4/testing_the_backend#exercises-4-13-4-14)
+<br>
+[Exercises 4.15 - 4.23](https://fullstackopen.com/en/part4/token_authentication#exercises-4-15-4-23)
 
 ## 4.1: Blog List, step 1
 
@@ -227,3 +229,9 @@ Use async/await.
 The application mostly needs to update the number of likes for a blog post. You can implement this functionality the same way that we implemented updating notes in part 3.
 
 Implement tests for the functionality.
+
+## 4.15: Blog List Expansions, step 3
+
+Implement a way to create new users by doing an HTTP POST request to address api/users. Users have a username, password and name.
+
+Do not save passwords to the database as clear text, but use the bcrypt library like we did in part 4 chapter Creating users.
