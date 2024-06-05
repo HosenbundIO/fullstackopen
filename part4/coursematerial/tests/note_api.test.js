@@ -8,11 +8,18 @@ const api = supertest(app);
 const helper = require('./test_helper');
 
 const Note = require('../models/note');
+const User = require('../models/user');
 
 describe('when there is initially some notes saved', () => {
+  let token;
+
   beforeEach(async () => {
     await Note.deleteMany({});
     await Note.insertMany(helper.initialNotes);
+
+    await User.deleteMany({});
+
+    token = await helper.createUserAndToken();
   });
 
   test('notes are returned as json', async () => {
@@ -64,7 +71,7 @@ describe('when there is initially some notes saved', () => {
   });
 
   describe('addition of a new note', () => {
-    test('succeeds with valid data', async () => {
+    test('succeeds with valid data', async (request) => {
       const newNote = {
         content: 'async/await simplifies making async calls',
         important: true,
@@ -72,6 +79,7 @@ describe('when there is initially some notes saved', () => {
 
       await api
         .post('/api/notes')
+        .set('Authorization', `Bearer ${token}`)
         .send(newNote)
         .expect(201)
         .expect('Content-Type', /application\/json/);
@@ -88,7 +96,11 @@ describe('when there is initially some notes saved', () => {
         important: true,
       };
 
-      await api.post('/api/notes').send(newNote).expect(400);
+      await api
+        .post('/api/notes')
+        .set('Authorization', `Bearer ${token}`)
+        .send(newNote)
+        .expect(400);
 
       const notesAtEnd = await helper.notesInDb();
 
