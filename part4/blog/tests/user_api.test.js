@@ -42,6 +42,52 @@ describe('when there is initially one user in db', () => {
     const usernames = usersAtEnd.map((u) => u.username);
     assert(usernames.includes(newUser.username));
   });
+
+  test('creation of a user fails due to password length < 3', async () => {
+    const usersAtStart = await helper.usersInDb();
+
+    const newUser = {
+      username: 'mluukkai',
+      name: 'Matti Luukkainen',
+      password: 'sa',
+    };
+
+    await api
+      .post('/api/users')
+      .send(newUser)
+      .expect(400)
+      .expect('Content-Type', /application\/json/)
+      .expect((response) => {
+        assert(
+          response.body.error,
+          'password needs to be at least 3 characters long!'
+        );
+      });
+
+    const usersAtEnd = await helper.usersInDb();
+    assert(usersAtStart, usersAtEnd);
+  });
+  test('creation of a user fails due to username length < 3', async () => {
+    const usersAtStart = await helper.usersInDb();
+
+    const newUser = {
+      username: 'ml',
+      name: 'Matti Luukkainen',
+      password: 'salainen',
+    };
+
+    await api
+      .post('/api/users')
+      .send(newUser)
+      .expect(400)
+      .expect('Content-Type', /application\/json/)
+      .expect((response) => {
+        assert(
+          response.body.error,
+          'username needs to be at least 3 characters long!'
+        );
+      });
+  });
 });
 
 after(async () => {

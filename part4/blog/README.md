@@ -235,3 +235,15 @@ Implement tests for the functionality.
 Implement a way to create new users by doing an HTTP POST request to address api/users. Users have a username, password and name.
 
 Do not save passwords to the database as clear text, but use the bcrypt library like we did in part 4 chapter Creating users.
+
+## 4.16\*: Blog List Expansions, step 4
+
+Add a feature which adds the following restrictions to creating new users: Both username and password must be given and both must be at least 3 characters long. The username must be unique.
+
+The operation must respond with a suitable status code and some kind of an error message if an invalid user is created.
+
+NB Do not test password restrictions with Mongoose validations. It is not a good idea because the password received by the backend and the password hash saved to the database are not the same thing. The password length should be validated in the controller as we did in part 3 before using Mongoose validation.
+
+Also, implement tests that ensure invalid users are not created and that an invalid add user operation returns a suitable status code and error message.
+
+NB if you decide to define tests on multiple files, you should note that by default each test file is executed in its own process (see Test execution model in the documentation). The consequence of this is that different test files are executed at the same time. Since the tests share the same database, simultaneous execution may cause problems, which can be avoided by executing the tests with the option --test-concurrency=1, i.e. defining them to be executed sequentially.
