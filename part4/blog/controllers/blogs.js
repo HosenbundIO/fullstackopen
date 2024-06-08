@@ -3,20 +3,16 @@ const blog = require('../models/blog');
 const Blog = require('../models/blog');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+const middleware = require('../utils/middleware');
 
 blogRouter.get('/', async (request, response) => {
   const blogs = await Blog.find({}).populate('user', { username: 1, name: 1 });
   response.json(blogs);
 });
 
-blogRouter.post('/', async (request, response) => {
+blogRouter.post('/', middleware.userExtractor, async (request, response) => {
   const body = request.body;
-  const decodedToken = jwt.verify(request.token, process.env.SECRET);
-
-  if (!decodedToken.id) {
-    return response.status(401).json({ error: 'token invalid' });
-  }
-  const user = await User.findById(decodedToken.id);
+  const user = request.user;
 
   const blog = new Blog({
     title: body.title,
@@ -32,27 +28,26 @@ blogRouter.post('/', async (request, response) => {
   response.status(201).json(savedBlog);
 });
 
-blogRouter.delete('/:id', async (request, response) => {
-  const decodedToken = jwt.verify(request.token, process.env.SECRET);
+blogRouter.delete(
+  '/:id',
+  middleware.userExtractor,
+  async (request, response) => {
+    const user = request.user;
+    const blog = await Blog.findById(request.params.id);
 
-  if (!decodedToken.id) {
-    return response.status(401).json({ error: 'token invalid' });
+    if (!blog) {
+      return response.status(404).json({ error: 'blog not found' });
+    }
+    if (blog.user.toString() !== user.id) {
+      return response
+        .status(403)
+        .json({ error: 'only the creator can delete this blog' });
+    }
+
+    await Blog.findByIdAndDelete(request.params.id);
+    response.status(204).end();
   }
-
-  const blog = await Blog.findById(request.params.id);
-
-  if (!blog) {
-    return response.status(404).json({ error: 'blog not found' });
-  }
-  if (blog.user.toString() !== decodedToken.id) {
-    return response
-      .status(403)
-      .json({ error: 'only the creator can delete this blog' });
-  }
-
-  await Blog.findByIdAndDelete(request.params.id);
-  response.status(204).end();
-});
+);
 
 blogRouter.put('/:id', async (request, response) => {
   const updatedBlog = await Blog.findByIdAndUpdate(
