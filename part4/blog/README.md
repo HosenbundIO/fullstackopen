@@ -253,3 +253,11 @@ NB if you decide to define tests on multiple files, you should note that by defa
 Expand blogs so that each blog contains information on the creator of the blog.
 
 Modify adding new blogs so that when a new blog is created, any user from the database is designated as its creator (for example the one found first). Implement this according to part 4 chapter populate. Which user is designated as the creator does not matter just yet. The functionality is finished in exercise 4.19.
+
+## 4.18: Blog List Expansion, step 6
+
+Implement token-based authentication according to part 4 chapter Token authentication.
+
+## 4.19: Blog List Expansion, step 7
+
+Modify adding new blogs so that it is only possible if a valid token is sent with the HTTP POST request. The user identified by the token is designated as the creator of the blog.

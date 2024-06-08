@@ -16,15 +16,8 @@ loginRouter.post('/', async (request, response) => {
     });
   }
 
-  const userForToken = {
-    username: user.username,
-    id: user._id,
-  };
+  const userForToken = { username: user.username, id: user._id };
 
-  // permission to access the api without any time limit
-  //const token = jwt.sign(userForToken, process.env.SECRET);
-
-  // limit the validity period of a token to 1 hour and new token is needed by re-login
   const token = jwt.sign(userForToken, process.env.SECRET, {
     expiresIn: 60 * 60,
   });
