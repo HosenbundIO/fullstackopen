@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production node index.js",
-    "dev": "NODE_ENV=development nodemon index.js",
+    "dev": "NODE_ENV=test nodemon index.js",
     "build:ui": "rm -rf dist && cd ../../part2/phonebook && npm run build --prod && cp -r dist ../../part3/phonebook/",
     "deploy:to-other-repo": "cd ../../../production-fullstackopen && rm -rf * && cp -r ../fullstackopen/part3/phonebook/. . && git add . && git commit -m deploy && git push",
     "lint": "eslint .",

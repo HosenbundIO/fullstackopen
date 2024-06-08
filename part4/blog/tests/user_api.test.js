@@ -88,6 +88,21 @@ describe('when there is initially one user in db', () => {
         );
       });
   });
+
+  test('return user object with blogs property', async () => {
+    const newUser = {
+      username: 'mleasd',
+      name: 'Matti Luukkainen',
+      password: 'salainen',
+    };
+
+    await api
+      .post('/api/users')
+      .send(newUser)
+      .expect(201)
+      .expect('Content-Type', /application\/json/);
+
+  });
 });
 
 after(async () => {

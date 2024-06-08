@@ -247,3 +247,9 @@ NB Do not test password restrictions with Mongoose validations. It is not a good
 Also, implement tests that ensure invalid users are not created and that an invalid add user operation returns a suitable status code and error message.
 
 NB if you decide to define tests on multiple files, you should note that by default each test file is executed in its own process (see Test execution model in the documentation). The consequence of this is that different test files are executed at the same time. Since the tests share the same database, simultaneous execution may cause problems, which can be avoided by executing the tests with the option --test-concurrency=1, i.e. defining them to be executed sequentially.
+
+## 4.17: Blog List Expansion, step 5
+
+Expand blogs so that each blog contains information on the creator of the blog.
+
+Modify adding new blogs so that when a new blog is created, any user from the database is designated as its creator (for example the one found first). Implement this according to part 4 chapter populate. Which user is designated as the creator does not matter just yet. The functionality is finished in exercise 4.19.
