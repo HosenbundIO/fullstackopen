@@ -261,3 +261,126 @@ Implement token-based authentication according to part 4 chapter Token authentic
 ## 4.19: Blog List Expansion, step 7
 
 Modify adding new blogs so that it is only possible if a valid token is sent with the HTTP POST request. The user identified by the token is designated as the creator of the blog.
+
+## 4.20\*: Blog List Expansion, step 8
+
+This example from part 4 shows taking the token from the header with the getTokenFrom helper function in controllers/blogs.js.
+
+If you used the same solution, refactor taking the token to a middleware. The middleware should take the token from the Authorization header and assign it to the token field of the request object.
+
+In other words, if you register this middleware in the app.js file before all routes
+
+```javascript
+app.use(middleware.tokenExtractor);
+```
+
+Routes can access the token with request.token:
+
+```javascript
+blogsRouter.post('/', async (request, response) => {
+  // ..
+  const decodedToken = jwt.verify(request.token, process.env.SECRET);
+  // ..
+});
+```
+
+Remember that a normal middleware function is a function with three parameters, that at the end calls the last parameter next to move the control to the next middleware:
+
+```javascript
+const tokenExtractor = (request, response, next) => {
+  // code that extracts the token
+
+  next();
+};
+```
+
+## 4.21\*: Blog List Expansion, step 9
+
+Change the delete blog operation so that a blog can be deleted only by the user who added it. Therefore, deleting a blog is possible only if the token sent with the request is the same as that of the blog's creator.
+
+If deleting a blog is attempted without a token or by an invalid user, the operation should return a suitable status code.
+
+Note that if you fetch a blog from the database,
+
+```javascript
+const blog = await Blog.findById(...)
+```
+
+the field blog.user does not contain a string, but an object. So if you want to compare the ID of the object fetched from the database and a string ID, a normal comparison operation does not work. The ID fetched from the database must be parsed into a string first.
+
+```javascript
+if ( blog.user.toString() === userid.toString() ) ...
+```
+
+## 4.22\*: Blog List Expansion, step 10
+
+Both the new blog creation and blog deletion need to find out the identity of the user who is doing the operation. The middleware tokenExtractor that we did in exercise 4.20 helps but still both the handlers of post and delete operations need to find out who the user holding a specific token is.
+
+Now create a new middleware userExtractor, that finds out the user and sets it to the request object. When you register the middleware in app.js
+
+```javascript
+app.use(middleware.userExtractor);
+```
+
+the user will be set in the field request.user:
+
+```javascript
+blogsRouter.post('/', async (request, response) => {
+  // get user from request object
+  const user = request.user;
+  // ..
+});
+
+blogsRouter.delete('/:id', async (request, response) => {
+  // get user from request object
+  const user = request.user;
+  // ..
+});
+```
+
+Note that it is possible to register a middleware only for a specific set of routes. So instead of using userExtractor with all the routes,
+
+```javascript
+const middleware = require('../utils/middleware');
+// ...
+
+// use the middleware in all routes
+
+app.use(middleware.userExtractor);
+
+app.use('/api/blogs', blogsRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/login', loginRouter);
+```
+
+we could register it to be only executed with path /api/blogs routes:
+
+```javascript
+const middleware = require('../utils/middleware');
+// ...
+
+// use the middleware only in /api/blogs routes
+
+app.use('/api/blogs', middleware.userExtractor, blogsRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/login', loginRouter);
+```
+
+As can be seen, this happens by chaining multiple middlewares as the arguments of the function use. It would also be possible to register a middleware only for a specific operation:
+
+```javascript
+const middleware = require('../utils/middleware');
+// ...
+
+router.post('/', middleware.userExtractor, async (request, response)) => {
+  // ...
+}
+```
+
+## 4.23\*: Blog List Expansion, step 11
+
+After adding token-based authentication the tests for adding a new blog broke down. Fix them. Also, write a new test to ensure adding a blog fails with the proper status code 401 Unauthorized if a token is not provided.
+
+This is most likely useful when doing the fix.
+
+This is the last exercise for this part of the course and it's time to push your code to GitHub and mark all of your finished exercises to the exercise submission system.
