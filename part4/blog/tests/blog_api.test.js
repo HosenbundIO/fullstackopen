@@ -4,17 +4,24 @@ const supertest = require('supertest');
 const app = require('../app');
 const assert = require('assert');
 const Blog = require('../models/blog');
+const User = require('../models/user');
 const helper = require('./test_helper');
 
 const api = supertest(app);
 
 describe('When there is initially some blogs saved', () => {
+  let token;
+
   beforeEach(async () => {
     await Blog.deleteMany({});
     console.log('\n--------------Database cleared!--------------\n');
     const blogObjects = helper.initialBlogs.map((blog) => new Blog(blog));
     const promiseArray = blogObjects.map((blog) => blog.save());
     await Promise.all(promiseArray);
+
+    await User.deleteMany({});
+
+    token = await helper.createUserAndToken();
   });
 
   test('Blogs are returned as json', async () => {
@@ -51,6 +58,7 @@ describe('When there is initially some blogs saved', () => {
 
       await api
         .post('/api/blogs')
+        .set('Authorization', `Bearer ${token}`)
         .send(newBlog)
         .expect(201)
         .expect('Content-Type', /application\/json/);
@@ -71,6 +79,7 @@ describe('When there is initially some blogs saved', () => {
 
       await api
         .post('/api/blogs')
+        .set('Authorization', `Bearer ${token}`)
         .send(newBlog)
         .expect(201)
         .expect('Content-Type', /application\/json/);
@@ -96,26 +105,65 @@ describe('When there is initially some blogs saved', () => {
         likes: 4,
       };
 
-      await api.post('/api/blogs').send(newBlog).expect(400);
-      await api.post('/api/blogs').send(newBlog1).expect(400);
+      await api
+        .post('/api/blogs')
+        .set('Authorization', `Bearer ${token}`)
+        .send(newBlog)
+        .expect(400);
+      await api
+        .post('/api/blogs')
+        .set('Authorization', `Bearer ${token}`)
+        .send(newBlog1)
+        .expect(400);
 
       const blogsAtEnd = await helper.blogsInDb();
       assert.strictEqual(blogsAtEnd.length, helper.initialBlogs.length);
+    });
+    test('Adding of a new blog fails if no token is given', async () => {
+      const newBlog = {
+        title: 'String4',
+        author: 'String4',
+        url: 'String4',
+        likes: 4,
+      };
+
+      const result = await api
+        .post('/api/blogs')
+        .send(newBlog)
+        .expect(401)
+        .expect('Content-Type', /application\/json/);
+
+      assert.strictEqual(result.body.error, 'token invalid');
     });
   });
 
   describe('deletion of a blog post', () => {
     test('deletion succeeds', async () => {
-      const blogsAtStart = await helper.blogsInDb();
-      const blogToDelete = blogsAtStart[0];
+      const newBlog = {
+        title: 'Blog to delete',
+        author: 'Test Author',
+        url: 'http://testurl.com',
+        likes: 10,
+      };
+      const postedBlog = await api
+        .post('/api/blogs')
+        .set('Authorization', `Bearer ${token}`)
+        .send(newBlog)
+        .expect(201)
+        .expect('Content-Type', /application\/json/);
 
-      await api.delete(`/api/blogs/${blogToDelete.id}`).expect(204);
+      const blogsAtStart = await helper.blogsInDb();
+
+      await api
+        .delete(`/api/blogs/${postedBlog.body.id}`)
+        .set('Authorization', `Bearer ${token}`)
+        .expect(204);
 
       const blogsAtEnd = await helper.blogsInDb();
       assert.strictEqual(blogsAtEnd.length, blogsAtStart.length - 1);
 
       const titles = blogsAtEnd.map((blog) => blog.title);
-      assert(!titles.includes(blogToDelete.title));
+      assert(!titles.includes(postedBlog.body.title));
     });
   });
 
