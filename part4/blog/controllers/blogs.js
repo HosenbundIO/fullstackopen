@@ -1,4 +1,5 @@
 const blogRouter = require('express').Router();
+const blog = require('../models/blog');
 const Blog = require('../models/blog');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
@@ -32,6 +33,23 @@ blogRouter.post('/', async (request, response) => {
 });
 
 blogRouter.delete('/:id', async (request, response) => {
+  const decodedToken = jwt.verify(request.token, process.env.SECRET);
+
+  if (!decodedToken.id) {
+    return response.status(401).json({ error: 'token invalid' });
+  }
+
+  const blog = await Blog.findById(request.params.id);
+
+  if (!blog) {
+    return response.status(404).json({ error: 'blog not found' });
+  }
+  if (blog.user.toString() !== decodedToken.id) {
+    return response
+      .status(403)
+      .json({ error: 'only the creator can delete this blog' });
+  }
+
   await Blog.findByIdAndDelete(request.params.id);
   response.status(204).end();
 });
